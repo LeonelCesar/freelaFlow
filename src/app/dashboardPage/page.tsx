@@ -4,7 +4,7 @@ import { Briefcase, DollarSign, ListChecks } from 'lucide-react';
 import ResumoTabela from '../components/dashboardResumo/Resumo';
 
 type Stat = {
-  icon: Ract.ElementType;
+  icon: React.ReactElement;
   label: string;
   value: string | number;
 };

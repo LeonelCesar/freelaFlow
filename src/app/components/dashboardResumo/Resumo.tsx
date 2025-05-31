@@ -1,15 +1,20 @@
-'use client';
+"use client";
 
 const dadosMock = [
-  { id: 'PRJ001', nome: 'Landing Page', status: 'Concluído', valor: '€ 1.850' },
-  { id: 'PRJ002', nome: 'App Mobile', status: 'Em Andamento', valor: '€ 2.200' },
-  { id: 'PRJ003', nome: 'E-commerce', status: 'Atrasado', valor: '€ 4.800' },
+  { id: "PRJ001", nome: "Landing Page", status: "Concluído", valor: "€ 1.850" },
+  {
+    id: "PRJ002",
+    nome: "App Mobile",
+    status: "Em Andamento",
+    valor: "€ 2.200",
+  },
+  { id: "PRJ003", nome: "E-commerce", status: "Atrasado", valor: "€ 4.800" },
 ];
 
 const statusColor = {
-  'Concluído': 'bg-green-100 text-green-800',
-  'Em Andamento': 'bg-yellow-100 text-yellow-800',
-  'Atrasado': 'bg-red-100 text-red-800',
+  Concluído: "bg-green-100 text-green-800",
+  "Em Andamento": "bg-yellow-100 text-yellow-800",
+  Atrasado: "bg-red-100 text-red-800",
 };
 
 function ResumoTabela() {
@@ -32,7 +37,11 @@ function ResumoTabela() {
                 <td className="px-4 py-3">{projeto.id}</td>
                 <td className="px-4 py-3">{projeto.nome}</td>
                 <td className="px-4 py-3">
-                  <span className={`px-2 py-1 rounded text-xs font-semibold ${statusColor[projeto.status]}`}>
+                  <span
+                    className={`px-2 py-1 rounded text-xs font-semibold ${
+                      statusColor[projeto.status as keyof typeof statusColor]
+                    }`}
+                  >
                     {projeto.status}
                   </span>
                 </td>
