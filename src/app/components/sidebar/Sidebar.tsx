@@ -1,4 +1,3 @@
-// app/components/Sidebar.tsx
 'use client';
 
 import Link from "next/link";
@@ -14,8 +13,15 @@ import {
 } from "lucide-react";
 import { useSidebarStore } from "@/app/lib/sidbarStore";
 
-export default function Sidebar() {
+function Sidebar() {
   const { isOpen, toggle } = useSidebarStore();
+
+  // Fecha o sidebar se for mobile
+  const handleLinkClick = () => {
+    if (window.innerWidth < 768) {
+      toggle();
+    }
+  };
 
   return (
     <>
@@ -43,37 +49,37 @@ export default function Sidebar() {
           {/* Links */}
           <ul className="space-y-4">
             <li>
-              <Link href="/" className="flex items-center gap-2 hover:text-blue-600">
+              <Link href="/" onClick={handleLinkClick} className="flex items-center gap-2 hover:text-blue-600">
                 <Home size={18} /> Home
               </Link>
             </li>
             <li>
-              <Link href="/sobrePage" className="flex items-center gap-2 hover:text-blue-600">
+              <Link href="/sobrePage" onClick={handleLinkClick} className="flex items-center gap-2 hover:text-blue-600">
                 <Info size={18} /> Sobre
               </Link>
             </li>
             <li>
-              <Link href="/tarefasPage" className="flex items-center gap-2 hover:text-blue-600">
+              <Link href="/tarefasPage" onClick={handleLinkClick} className="flex items-center gap-2 hover:text-blue-600">
                 <ListTodo size={18} /> Tarefas
               </Link>
             </li>
             <li>
-              <Link href="/dashboardPage" className="flex items-center gap-2 hover:text-blue-600">
+              <Link href="/dashboardPage" onClick={handleLinkClick} className="flex items-center gap-2 hover:text-blue-600">
                 <LayoutDashboard size={18} /> Dashboard
               </Link>
             </li>
             <li>
-              <Link href="/projectsPage" className="flex items-center gap-2 hover:text-blue-600">
+              <Link href="/projectsPage" onClick={handleLinkClick} className="flex items-center gap-2 hover:text-blue-600">
                 <FolderKanban size={18} /> Projetos
               </Link>
             </li>
             <li>
-              <Link href="/financasPage" className="flex items-center gap-2 hover:text-blue-600">
+              <Link href="/financasPage" onClick={handleLinkClick} className="flex items-center gap-2 hover:text-blue-600">
                 <Wallet size={18} /> Finanças
               </Link>
             </li>
             <li>
-              <Link href="/configuracaoPage" className="flex items-center gap-2 hover:text-blue-600">
+              <Link href="/configuracaoPage" onClick={handleLinkClick} className="flex items-center gap-2 hover:text-blue-600">
                 <Settings size={18} /> Configurações
               </Link>
             </li>
@@ -90,4 +96,7 @@ export default function Sidebar() {
     </>
   );
 }
+
+export default Sidebar;
+
 

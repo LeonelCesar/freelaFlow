@@ -27,11 +27,12 @@ const stats: Stat[] = [
   },
 ];
 
-export default function Dashboard() {
+ function Dashboard() {
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 px-4 sm:px-6 lg:px-8">
       <h2 className="text-2xl font-bold">Painel Principal</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {stats.map((stat, idx) => (
           <div
             key={idx}
@@ -45,7 +46,10 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
+
       <ResumoTabela />
     </section>
   );
 }
+
+export default Dashboard;
