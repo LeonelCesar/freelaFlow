@@ -14,13 +14,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "FreelaFlow",
   description: "Dashboard para freelancers",
 };
 
- function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -31,16 +30,17 @@ export const metadata: Metadata = {
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="min-h-screen bg-gray-100 text-gray-900">
-        <div className="flex h-screen overflow-hidden">
-          <Sidebar />
-          <div className="flex-1 flex flex-col">
-            <Navbar />
-            <main className="flex-1 overflow-y-auto p-6">{children}</main>
+      
+          <div className="flex h-screen overflow-hidden">
+            <Sidebar />
+            <div className="flex-1 flex flex-col">
+              <Navbar />
+              <main className="flex-1 overflow-y-auto p-6">{children}</main>
+            </div>
           </div>
-        </div>
+       
       </body>
     </html>
   );
 }
 
-export default RootLayout; 

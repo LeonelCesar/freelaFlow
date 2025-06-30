@@ -1,9 +1,8 @@
-// --- app/dashboard/relatorios/page.tsx ---
-'use client'
+'use client';
 
 import { BarChart2, FileText, CalendarDays } from 'lucide-react'
 
-export default function RelatoriosPage() {
+ function RelatoriosPage() {
   return (
     <section className="space-y-6">
       <h2 className="text-2xl font-bold mb-4">Relatórios</h2>
@@ -38,3 +37,5 @@ export default function RelatoriosPage() {
     </section>
   )
 }
+
+export default RelatoriosPage;
